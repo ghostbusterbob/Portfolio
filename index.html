@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jaysen Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+
+    <button class="theme-toggle" onclick="toggleTheme()">
+    <img src="img/moon.png" alt="Toggle theme">
+    </button>
+    <div class="desktop">
+        <div class="window">
+
+            <!-- Top bar -->
+            <div class="window-bar">
+                <div class="title">Jaysen van der Wal</div>
+            </div>
+
+            <!-- Content -->
+            <div class="window-content">
+
+<h1 class="hero-name">
+    Hi! I'm <span class="accent-name">Jaysen</span>
+</h1>                <p>Software Developer • Game Developer • C# • Unity</p>
+
+                <div class="tech-icons">
+                    <div class="tech-icon-box">
+                        <img src="img/csharp.png" alt="C#">
+                    </div>
+
+                    <div class="tech-icon-box">
+                        <img src="img/unity.png" alt="Unity">
+                    </div>
+                </div>
+
+                <!-- ICONS -->
+                <div class="icon-grid">
+
+                    <a href="#" class="icon" onclick="openWindow('aboutWindow')">
+                        <img src="img/1176.png" alt="">
+                        <span>about</span>
+                    </a>
+
+                    <a href="#" class="icon">
+                        <img src="img/folder.png" alt="">
+                        <span>work</span>
+                    </a>
+
+                    <a href="#" class="icon" onclick="openWindow('linksWindow')">
+                        <img src="img/linksymbol.png" alt="">
+                        <span>links</span>
+                    </a>
+
+                    <a href="#" class="icon">
+                        <img src="img/email.png" alt="">
+                        <span>contact</span>
+                    </a>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- ABOUT WINDOW -->
+    <div id="aboutWindow" class="popup-window">
+        <div class="popup-bar">
+            <span>About Me</span>
+            <button onclick="closeWindow('aboutWindow')">✕</button>
+        </div>
+
+        <div class="popup-content">
+            <p>
+                ipsum dolor sit amet consectetur adipisicing elit. Earum deleniti aperiam perspiciatis
+                veritatis neque laudantium quaerat autem ea? Exercitationem recusandae non neque reprehenderit
+                libero doloribus dolor fugit quasi placeat facere.
+            </p>
+        </div>
+    </div>
+
+    <!-- LINKS WINDOW -->
+    <div id="linksWindow" class="popup-window">
+        <div class="popup-bar">
+            <span>Links</span>
+            <button onclick="closeWindow('linksWindow')">✕</button>
+        </div>
+
+        <div class="popup-content">
+
+        </div>
+    </div>
+
+
+    <!-- SCRIPT -->
+    <script src="popups.js" defer></script>
+
+
+</body>
+
+</html>
