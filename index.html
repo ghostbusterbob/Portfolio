@@ -5,76 +5,139 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Jaysen Portfolio</title>
+
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="stylework.css">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Libre+Baskerville:wght@400..700&display=swap"
         rel="stylesheet">
 </head>
 
 <body>
 
+    <audio id="clickSoundIcon" src="sfx/dragon-studio-mouse-click-sfx-444806.mp3" preload="auto"></audio>
+    <audio id="clickSoundButton" src="sfx/universfield-computer-mouse-click-352734.mp3" preload="auto"></audio>
+
+    <h1 id="clock" class="bigclock">00:00</h1>
+
+
 
     <button class="theme-toggle" onclick="toggleTheme()">
-    <img src="img/moon.png" alt="Toggle theme">
+        <img src="img/moon.png" alt="Toggle theme">
     </button>
-    <div class="desktop">
-        <div class="window">
 
-            <!-- Top bar -->
-            <div class="window-bar">
-                <div class="title">Jaysen van der Wal</div>
-            </div>
+    <div class="app-wrapper">
 
-            <!-- Content -->
-            <div class="window-content">
+        <!-- MAIN WINDOW -->
+        <div id="mainWindow" class="window-panel">
+            <div class="window">
 
-<h1 class="hero-name">
-    Hi! I'm <span class="accent-name">Jaysen</span>
-</h1>                <p>Software Developer • Game Developer • C# • Unity</p>
-
-                <div class="tech-icons">
-                    <div class="tech-icon-box">
-                        <img src="img/csharp.png" alt="C#">
-                    </div>
-
-                    <div class="tech-icon-box">
-                        <img src="img/unity.png" alt="Unity">
-                    </div>
+                <div class="window-bar">
+                    <div class="title">Jaysen van der Wal</div>
                 </div>
 
-                <!-- ICONS -->
-                <div class="icon-grid">
+                <div class="window-content">
 
-                    <a href="#" class="icon" onclick="openWindow('aboutWindow')">
-                        <img src="img/1176.png" alt="">
-                        <span>about</span>
-                    </a>
+                    <h1 class="hero-name">
+                        Hi! I'm <span class="accent-name">Jaysen</span>
+                    </h1>
 
-                    <a href="#" class="icon">
-                        <img src="img/folder.png" alt="">
-                        <span>work</span>
-                    </a>
+                    <p>Software Developer • Game Developer • C# • Unity</p>
 
-                    <a href="#" class="icon" onclick="openWindow('linksWindow')">
-                        <img src="img/linksymbol.png" alt="">
-                        <span>links</span>
-                    </a>
+                    <div class="tech-icons">
+                        <div class="tech-icon-box">
+                            <img src="img/csharp.png" alt="C#">
+                        </div>
 
-                    <a href="#" class="icon">
-                        <img src="img/email.png" alt="">
-                        <span>contact</span>
-                    </a>
+                        <div class="tech-icon-box">
+                            <img src="img/unity.png" alt="Unity">
+                        </div>
+                    </div>
 
+                    <div class="icon-grid">
+
+                        <a href="#" class="icon" onclick="openWindow('aboutWindow')">
+                            <img src="img/1176.png" alt="">
+                            <span>about</span>
+                        </a>
+
+
+                        <a href="#" class="icon" onclick="openWork()">
+                            <img src="img/folder.png" alt="">
+                            <span>work</span>
+                        </a>
+
+                        <a href="#" class="icon" onclick="openWindow('linksWindow')">
+                            <img src="img/linksymbol.png" alt="">
+                            <span>links</span>
+                        </a>
+
+                        <a href="#" class="icon">
+                            <img src="img/gearicon.png" alt="">
+                            <span>skills</span>
+                        </a>
+                        <a href="#" class="icon" onclick="openWindow('contactWindow')">
+                            <img src="img/email.png" alt="">
+                            <span>contact</span>
+                        </a>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- WORK WINDOW -->
+        <div id="workWindow" class="window-panel work-window">
+            <div class="window">
+
+                <div class="window-bar">
+                    <div class="title"><button onclick="goHome()">&lt;</button></div>
+
+                </div>
+
+                <div class="window-content">
+                    <h1 class="hero-name">Things that i've worked on!</h1>
+                    <p>Here are my projects.</p>
+
+                    <div class="projectGrid">
+                        <div class="gridCell">
+                            <img src="img/recleanrender.gif" alt="">
+                            <div class="gridCaption">
+                                <p class="capsuleTitle">RE:CLEAN</p>
+                                <p class="description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed
+                                    corrupti nam aspernatur, sequi alias illum voluptatibus, numquam quaerat culpa
+                                    voluptatum voluptas, quis nihil maiores! Molestias illum corporis vero sequi sunt!
+                                </p>
+                                <button>Learn More!</button>
+                            </div>
+                        </div>
+                        <div class="gridCell">
+                            <img src="img/RECLEANTUMB.png" alt="">
+                            <div class="gridCaption">
+                                <p>firehoe</p>
+                                <button>Learn More!</button>
+                            </div>
+                        </div>
+                        <div class="gridCell">
+                            <img src="img/RECLEANTUMB.png" alt="">
+
+                            <div class="gridCaption">
+                                <p>firehoe</p>
+                                <button>Learn More!</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
             </div>
         </div>
+
     </div>
-
-
 
     <!-- ABOUT WINDOW -->
     <div id="aboutWindow" class="popup-window">
@@ -84,11 +147,7 @@
         </div>
 
         <div class="popup-content">
-            <p>
-                ipsum dolor sit amet consectetur adipisicing elit. Earum deleniti aperiam perspiciatis
-                veritatis neque laudantium quaerat autem ea? Exercitationem recusandae non neque reprehenderit
-                libero doloribus dolor fugit quasi placeat facere.
-            </p>
+            <p>About text goes here...</p>
         </div>
     </div>
 
@@ -99,16 +158,74 @@
             <button onclick="closeWindow('linksWindow')">✕</button>
         </div>
 
-        <div class="popup-content">
+        <div class="popup-content links-grid">
+
+            <a href="https://github.com/ghostbusterbob" target="_blank" class="link-icon">
+                <img src="img/github.png" alt="">
+                <span>GitHub</span>
+            </a>
+
+
+            <a href="mailto:jaysenvanderwal@gmail.com" class="link-icon">
+                <img src="img/Gmail_icon_(2020).svg.png" alt="">
+                <span>Email</span>
+            </a>
 
         </div>
     </div>
+    <!-- Contact WINDOW -->
+    <div id="contactWindow" class="popup-window">
+        <div class="popup-bar">
+            <span>E-MAIL</span>
+            <button onclick="closeWindow('contactWindow')">✕</button>
+        </div>
+        <h1>E-mail me!</h1>
+        <div class="emailgrid">
+            <p>The best way to contact me is by sending a e-mail</p>
+            <p>e-mail me at: <a onclick="copyText()">jaysenvanderwal@gmail.com</a> </p>
+            <a class="emailButton" href="mailto:jaysenvanderwal@gmail.com">
+                E-MAIL me!
+            </a>
+        </div>
+    </div>
+    </div>
 
+    <script src="js/popups.js"></script>
+    <script src="js/clock.js"></script>
 
-    <!-- SCRIPT -->
-    <script src="popups.js" defer></script>
+    <script>
+        const clickSound = document.getElementById("clickSoundIcon");
+        const clickSoundButton = document.getElementById("clickSoundButton")
+        document.querySelectorAll(".icon").forEach(el => {
+            el.addEventListener("click", () => {
+                clickSound.currentTime = 0.15;
+                clickSound.playbackRate = 3;
+                clickSound.play();
+            });
+        });
+        document.querySelectorAll("button").forEach(el => {
+            el.addEventListener("click", () => {
+                clickSoundButton.playbackRate = 2;
+                clickSoundButton.play();
+            });
+        });
+    </script>
 
+    <script>
+        function copyText() {
+            const text = document.getElementById("email").innerText;
+
+            navigator.clipboard.writeText(text)
+                .then(() => {
+                    alert("Copied!");
+                })
+                .catch(err => {
+                    console.error("Failed to copy: ", err);
+                });
+        }
+    </script>
 
 </body>
+
 
 </html>
