@@ -76,8 +76,8 @@
 .gridCaption button {
     margin-top: 10px;
     padding: 10px 16px;
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    background: rgba(255, 255, 255, 0.08);
+    border: .5px solid white;
+    background: black;
     color: white;
     font-family: "Inter", sans-serif;
     font-size: 14px;
@@ -90,7 +90,7 @@
 }
 
 .gridCaption button:hover {
-    background: rgba(255, 255, 255, 0.18);
+    background: black(255, 255, 255, 0.18);
     transform: translateY(-2px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
