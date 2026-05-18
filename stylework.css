@@ -53,7 +53,7 @@
 
 .gridCaption {
     font-family: "Libre Baskerville", serif;
-    padding: 20px;
+    padding: 5px;
     width: 500px;
 }
 
@@ -75,7 +75,8 @@
 
 .gridCaption button {
     margin-top: 10px;
-    padding: 10px 16px;
+    margin-bottom: 30px;
+    padding: 10px 30px;
     border: .5px solid white;
     background: black;
     color: white;
@@ -99,4 +100,20 @@
     width: 500px;
     object-fit: fill;
 
+}
+
+.gridTags {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    width: 250px;
+
+
+}
+
+.gridTags img {
+    margin-top: 0;
+    width: 70px !important;
+
+    object-fit: contain;
 }
