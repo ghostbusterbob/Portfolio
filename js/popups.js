@@ -10,6 +10,10 @@ function openLinks() {
     document.getElementById("linksWindow").style.display = "block";
 }
 
+function openSkills(){
+    document.getElementById("skillsWindow").style.display = "block";
+}
+
 function closeLinks() {
     document.getElementById("linksWindow").style.display = "none";
 }
@@ -22,7 +26,6 @@ function openWindow(id) {
     const centerX = (window.innerWidth - winWidth) / 2;
     const centerY = (window.innerHeight - winHeight) / 2;
 
-    // more noticeable randomness but still centered
     const offsetX = (Math.random() - 0.5) * 800; // -100 to +100
     const offsetY = (Math.random() - 0.5) * 700; // -80 to +80
 
@@ -40,7 +43,6 @@ function closeWindow(id) {
 
     win.classList.remove("show");
 
-    // wait for animation before hiding completely
     setTimeout(() => {
         win.style.display = "none";
     }, 180);
