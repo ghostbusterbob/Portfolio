@@ -285,7 +285,16 @@ body {
 
 
 /* ============================= */
-/* GLOBAL ILLUMINATION */
+/* ENEMY IMAGE */
+/* ============================= */
+
+.EnemyB {
+    max-width: 40% !important;
+}
+
+
+/* ============================= */
+/* GLOBAL ILLUMINATION IMAGE */
 /* ============================= */
 
 .globalIll {
@@ -530,6 +539,11 @@ body.light .scroll-indicator {
 
     .window img {
         max-width: 95%;
+    }
+
+
+    .EnemyB {
+        max-width: 60% !important;
     }
 
 
