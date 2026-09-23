@@ -11,26 +11,27 @@
     pointer-events: none;
     z-index: 999999;
 
-    background: repeating-linear-gradient(
-        to bottom,
-        rgba(0, 0, 0, 0.396),
-        rgba(0, 0, 0, 0.606) 1px,
-        transparent 2px,
-        transparent 4px
-    );
+    background: repeating-linear-gradient(to bottom,
+            rgba(0, 0, 0, 0.396),
+            rgba(0, 0, 0, 0.606) 1px,
+            transparent 2px,
+            transparent 4px);
 
     mix-blend-mode: overlay;
     opacity: 0.6;
 
-        animation: scanMove 10s linear infinite;
+    animation: scanMove 10s linear infinite;
 }
+
 @keyframes scanMove {
     0% {
         transform: translateY(0);
     }
+
     50% {
         transform: translateY(10px);
     }
+
     100% {
         transform: translateY(0);
     }
@@ -64,7 +65,7 @@ body {
     justify-content: center;
     align-items: center;
     cursor: url("img"), auto;
-        position: relative;
+    position: relative;
 }
 
 
@@ -383,6 +384,7 @@ body {
 
     transition: transform 0.2s ease;
 }
+
 .SkillsImages {
     display: flex;
     flex-wrap: wrap;
@@ -391,15 +393,18 @@ body {
 }
 
 .skill {
+    width: 110px;
+    /* fixed width so labels don't shift things */
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 .skill img {
-    width: 200px;
+    width: 180px;
     height: 120px;
     object-fit: contain;
+
 }
 
 .skill span {
