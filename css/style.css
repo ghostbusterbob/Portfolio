@@ -1,0 +1,973 @@
+/* Shared portfolio styles */
+:root {
+    color-scheme: dark;
+    --panel: #0e1825;
+    --bar: #141424;
+    --text: #eaeaea;
+    --muted: #b5b5c9;
+    --accent: #5aa9ff;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+html {
+    min-width: 320px;
+    min-height: 100%;
+}
+
+body {
+    min-height: 100svh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+    background: url("../assets/images/backgrounds/dark.png") center / cover fixed no-repeat;
+    color: var(--text);
+    font-family: "Segoe UI", sans-serif;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+}
+
+/* Home screen */
+.app-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100svh;
+    min-height: 480px;
+    overflow: hidden;
+}
+
+.window-panel {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(12px, 3vw, 36px);
+    transition: transform .8s cubic-bezier(.2, 1, .2, 1);
+}
+
+#mainWindow {
+    transform: translateX(0);
+}
+
+.work-window {
+    transform: translateX(100%) rotate(10deg);
+}
+
+.app-wrapper.show-work #mainWindow {
+    transform: translateX(-100%) rotate(-70deg);
+}
+
+.app-wrapper.show-work .work-window {
+    transform: translateX(0);
+}
+
+#workWindow .window {
+    width: min(1760px, 100%);
+    height: min(94svh, 1400px);
+    max-height: calc(100svh - 16px);
+}
+
+.bigclock {
+    position: fixed;
+    top: 20%;
+    color: white;
+    font-size: 35px;
+    font-style: italic;
+    font-weight: 550;
+    text-shadow: 5px 5px 15px black;
+}
+
+.window {
+    display: flex;
+    flex-direction: column;
+    width: min(700px, 100%);
+    max-height: calc(100svh - 32px);
+    overflow: hidden;
+    border: 1px solid white;
+    background: var(--panel);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, .6);
+}
+
+.window-bar,
+.popup-bar {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, .7);
+    background: var(--bar);
+    color: #aaa;
+    font-size: 13px;
+}
+
+.title {
+    color: #aaa;
+    font-size: 13px;
+}
+
+.title button,
+.popup-bar button {
+    border: 0;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.window-content {
+    min-height: 0;
+    overflow: auto;
+    padding: 40px;
+    text-align: center;
+    scrollbar-width: thin;
+    scrollbar-color: #555 #0a1018;
+}
+
+.window-content h1 {
+    margin-bottom: 10px;
+    font-size: 32px;
+}
+
+.window-content p {
+    max-width: 800px;
+    margin: 0 auto 18px;
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+.hero-name {
+    padding-bottom: 20px;
+    color: white;
+    font: 500 36px/1.25 "Libre Baskerville", Georgia, serif;
+    letter-spacing: 2px;
+}
+
+.hero-divider {
+    margin-top: 20px;
+    color: grey;
+}
+
+.accent-name {
+    display: inline-block;
+    color: var(--accent);
+    font-family: "Libre Baskerville", Georgia, serif;
+    transition: transform .35s cubic-bezier(.2, 1, .2, 1), text-shadow .35s ease;
+}
+
+.accent-name:hover {
+    transform: translateY(-5px) scale(1.03);
+    text-shadow: 0 0 15px rgba(90, 169, 255, .7);
+}
+
+.tech-icons {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 10px;
+}
+
+.tech-icon-box {
+    display: grid;
+    width: 50px;
+    height: 50px;
+    place-items: center;
+    transition: transform .2s ease;
+}
+
+.tech-icon-box img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+
+.tech-icon-box:hover {
+    transform: translateY(-2px);
+}
+
+.icon-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0;
+    margin-top: 5px;
+}
+
+.icon {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    font-size: 12px;
+    text-decoration: none;
+    transition: transform .2s ease;
+}
+
+.icon img {
+    width: 120px;
+    height: 130px;
+    margin-bottom: 6px;
+    object-fit: contain;
+}
+
+.icon span {
+    color: #eaeaea;
+    font-size: 12px;
+}
+
+.icon::after {
+    position: absolute;
+    bottom: 28px;
+    left: 50%;
+    width: 60%;
+    height: 2px;
+    background: white;
+    content: "";
+    opacity: .85;
+    transform: translateX(-50%) scaleX(0);
+    transition: transform .25s cubic-bezier(.2, 1, .2, 1);
+}
+
+.icon:hover {
+    transform: translateY(-4px) rotate(-4deg);
+}
+
+.icon:hover::after {
+    transform: translateX(-50%) scaleX(1);
+}
+
+/* Popup windows */
+.popup-window {
+    position: fixed;
+    z-index: 999;
+    top: 14px;
+    left: 14px;
+    display: none;
+    width: min(700px, calc(100vw - 28px));
+    max-height: calc(100svh - 28px);
+    overflow: auto;
+    border: 2px solid white;
+    background: var(--panel);
+    box-shadow: 0 25px 80px rgba(0, 0, 0, .7);
+    opacity: 0;
+    transform: scale(.7) translateY(20px);
+    transform-origin: center;
+    transition: opacity .25s ease, transform .35s cubic-bezier(.2, 1.2, .2, 1);
+}
+
+.popup-window.show {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    animation: popupBounce .1s ease-out;
+}
+
+.popup-bar {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    cursor: grab;
+}
+
+.popup-bar button {
+    color: white;
+}
+
+.popup-content {
+    padding: 20px;
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* Shared popup controls and cards */
+.theme-toggle {
+    position: fixed;
+    z-index: 1000;
+    top: 15px;
+    left: 15px;
+    display: flex;
+    width: 45px;
+    height: 45px;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    transition: transform .2s ease;
+}
+
+.theme-toggle img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, .3));
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1) rotate(10deg);
+}
+
+.SkillsImages {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.skill {
+    display: flex;
+    width: 110px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.skill img {
+    width: 180px;
+    height: 120px;
+    object-fit: contain;
+}
+
+.skill span {
+    margin-top: 8px;
+    color: white;
+    font-size: 14px;
+    text-align: center;
+}
+
+.links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 20px;
+    justify-items: center;
+    padding-top: 10px;
+}
+
+.link-icon {
+    display: flex;
+    width: 100px;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+    text-decoration: none;
+    transition: transform .2s ease;
+}
+
+.link-icon img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 6px;
+    object-fit: contain;
+}
+
+.link-icon span {
+    color: #eaeaea;
+    font-size: 12px;
+}
+
+/* Contact popup */
+#contactWindow {
+    width: min(520px, calc(100vw - 28px));
+    padding-bottom: 20px;
+}
+
+#contactWindow .emailgrid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    margin: 0;
+    padding: 24px clamp(18px, 5vw, 42px) 8px;
+    color: var(--text);
+    font-size: 16px;
+    text-align: center;
+}
+
+#contactWindow h1 {
+    margin: 0;
+    color: white;
+    font: 500 clamp(25px, 5vw, 34px)/1.2 "Libre Baskerville", Georgia, serif;
+    letter-spacing: 1px;
+}
+
+#contactWindow .contact-copy {
+    max-width: 360px;
+    margin: 0;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.contact-icon {
+    display: grid;
+    width: 58px;
+    height: 58px;
+    place-items: center;
+    border: 1px solid rgba(255, 255, 255, .18);
+    border-radius: 16px;
+    background: rgba(255, 255, 255, .06);
+}
+
+.contact-icon img {
+    width: 34px;
+    height: 34px;
+    object-fit: contain;
+}
+
+.email-card {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 7px 14px;
+    padding: 15px 17px;
+    border: 1px solid rgba(255, 255, 255, .22);
+    border-radius: 10px;
+    background: rgba(0, 0, 0, .18);
+    text-align: left;
+}
+
+.email-label {
+    grid-column: 1 / -1;
+    color: #9aa8bd;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+#contactWindow .email-address {
+    color: #eaeaea;
+    font-size: clamp(13px, 3.5vw, 16px);
+    overflow-wrap: anywhere;
+    text-decoration: none;
+}
+
+#contactWindow .email-address:hover {
+    text-decoration: underline;
+}
+
+.copy-email {
+    padding: 7px 10px;
+    border: 1px solid rgba(255, 255, 255, .3);
+    border-radius: 6px;
+    background: #18283b;
+    color: white;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.copy-email:hover {
+    background: #243142;
+}
+
+#contactWindow .emailButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    margin: 2px 0 0;
+    padding: 12px 20px;
+    border: 1px solid rgba(255, 255, 255, .4);
+    border-radius: 8px;
+    background: #eaeaea;
+    color: #111;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform .2s ease;
+}
+
+#contactWindow .emailButton:hover {
+    transform: translateY(-1px);
+}
+
+#contactWindow .copy-status {
+    min-height: 1.2em;
+    margin: 0;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+/* Links popup */
+#linksWindow {
+    width: min(520px, calc(100vw - 28px));
+}
+
+#linksWindow .links-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    padding: 26px clamp(18px, 5vw, 38px) 30px;
+}
+
+.links-heading {
+    margin: 0;
+    color: white;
+    font: 500 clamp(24px, 5vw, 32px)/1.25 "Libre Baskerville", Georgia, serif;
+    text-align: center;
+}
+
+.links-intro {
+    margin: 0 0 8px;
+    color: var(--muted);
+    font-size: 14px;
+    text-align: center;
+}
+
+#linksWindow .link-icon {
+    display: grid;
+    width: 100%;
+    min-height: 82px;
+    grid-template-columns: 52px 1fr auto;
+    gap: 14px;
+    padding: 13px 15px;
+    border: 1px solid rgba(255, 255, 255, .22);
+    border-radius: 9px;
+    background: rgba(0, 0, 0, .16);
+    color: white;
+    text-align: left;
+}
+
+#linksWindow .link-icon:hover {
+    transform: translateY(-1px);
+    border-color: rgba(255, 255, 255, .34);
+    background: rgba(255, 255, 255, .05);
+}
+
+.link-icon-image {
+    display: grid;
+    width: 48px;
+    height: 48px;
+    place-items: center;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, .08);
+}
+
+#linksWindow .link-icon-image img {
+    width: 38px;
+    height: 38px;
+    margin: 0;
+    object-fit: contain;
+}
+
+.link-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+}
+
+.link-details strong {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.link-details small {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.link-arrow {
+    align-self: center;
+    font-size: 20px;
+}
+
+/* Skills popup */
+#skillsWindow {
+    width: min(660px, calc(100vw - 28px));
+}
+
+.skills-content {
+    padding: 26px clamp(18px, 4vw, 34px) 30px;
+}
+
+.skills-heading {
+    margin-bottom: 20px;
+    color: white;
+    font: 500 clamp(24px, 5vw, 32px)/1.25 "Libre Baskerville", Georgia, serif;
+    text-align: center;
+}
+
+.skills-intro {
+    margin: 7px 0 22px;
+    color: var(--muted);
+    font-size: 14px;
+    text-align: center;
+}
+
+.skills-groups {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 16px;
+}
+
+.skill-group {
+    min-width: 0;
+    padding: 15px;
+    border: 1px solid rgba(255, 255, 255, .2);
+    border-radius: 10px;
+    background: rgba(0, 0, 0, .14);
+}
+
+.skill-group h2 {
+    margin: 0 0 13px;
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+.skill-group .SkillsImages {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(78px, 1fr));
+    gap: 10px;
+}
+
+.skill-group .skill {
+    width: auto;
+    min-width: 0;
+    min-height: 116px;
+    justify-content: center;
+    gap: 9px;
+    padding: 10px 6px;
+    border: 1px solid rgba(255, 255, 255, .12);
+    border-radius: 8px;
+
+}
+
+.skill-group .skill-image {
+    display: grid;
+    width: 76px;
+    height: 76px;
+    place-items: center;
+}
+
+.skill-group .skill img {
+    display: block;
+    width: 70px;
+    height: 70px;
+    margin: 0;
+    object-fit: contain;
+}
+
+.skill-group .skill span:last-child {
+    margin: 0;
+    color: white;
+    font-size: 12px;
+    line-height: 1.3;
+}
+
+/* Standalone projects list */
+.standalone-work {
+    width: min(1180px, calc(100% - 40px));
+    max-height: calc(100svh - 48px);
+    overflow: auto;
+    margin: auto;
+    padding: clamp(20px, 4vw, 48px);
+    border: 1px solid white;
+    background: var(--panel);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, .6);
+    color: white;
+    text-align: center;
+}
+
+.standalone-work .hero-name {
+    margin: 18px 0 8px;
+}
+
+.back-link {
+    display: inline-block;
+    color: var(--muted);
+    text-decoration: none;
+}
+
+.back-link:hover {
+    color: white;
+}
+
+.work-intro {
+    margin-bottom: 18px;
+    color: var(--muted);
+}
+
+/* Light theme */
+body.light {
+    color-scheme: light;
+    background-image: url("../assets/images/backgrounds/light.png");
+    color: #111;
+}
+
+body.light .bigclock {
+    color: black;
+    text-shadow: 5px 5px 15px white;
+}
+
+body.light .window,
+body.light .popup-window,
+body.light .standalone-work {
+    border-color: #222;
+    background: white;
+}
+
+body.light .window-bar {
+    border-color: #797979;
+    background: #78797a;
+}
+
+body.light .popup-bar {
+    border-color: #ccc;
+    background: #f3f3f3;
+    color: #333;
+}
+
+body.light .popup-bar button {
+    color: #333;
+}
+
+body.light .title {
+    color: #444;
+}
+
+body.light .window-content p,
+body.light #contactWindow .contact-copy {
+    color: #333;
+}
+
+body.light .icon span {
+    color: #111;
+}
+
+body.light .hero-name,
+body.light #contactWindow h1,
+body.light .links-heading,
+body.light .skills-heading {
+    color: #111;
+}
+
+body.light .accent-name {
+    color: orange;
+}
+
+body.light .accent-name:hover {
+    text-shadow: 0 0 15px orange;
+}
+
+body.light img {
+    filter: none;
+}
+
+body.light .email-card {
+    border-color: #ccd2da;
+    background: #f4f6f8;
+}
+
+body.light #contactWindow .email-address {
+    color: #222;
+}
+
+body.light .copy-email {
+    border-color: #aeb6c0;
+    background: white;
+    color: #222;
+}
+
+body.light .copy-email:hover {
+    background: #eceff2;
+}
+
+body.light #contactWindow .emailButton {
+    background: #20242a;
+    color: white;
+}
+
+body.light #contactWindow .copy-status {
+    color: #555;
+}
+
+body.light .links-intro,
+body.light .link-details small,
+body.light .skills-intro {
+    color: #555;
+}
+
+body.light #linksWindow .link-icon {
+    border-color: #cbd2da;
+    background: #f7f8fa;
+    color: #111;
+}
+
+body.light #linksWindow .link-icon:hover {
+    border-color: #b7bec7;
+    background: #f1f3f5;
+}
+
+body.light .link-icon-image {
+    background: #e9edf1;
+}
+
+body.light .skill-group {
+    border-color: #d7dde4;
+    background: #f7f8fa;
+}
+
+body.light .skill-group .skill {
+    border-color: #e0e4e9;
+    background: white;
+}
+
+body.light .skill-group .skill:hover {
+    border-color: #c5cbd2;
+    background: #f4f5f6;
+}
+
+body.light .skill-group .skill span:last-child {
+    color: #222;
+}
+
+@media (max-width: 700px) {
+    .bigclock {
+        position: fixed;
+        top: max(12px, env(safe-area-inset-top));
+        right: 16px;
+        color: white;
+        font-size: 20px;
+        text-shadow: 2px 2px 8px #000;
+    }
+
+    .theme-toggle {
+        top: max(10px, env(safe-area-inset-top));
+        left: 12px;
+        width: 38px;
+        height: 38px;
+    }
+
+    .window-panel {
+        padding: 64px 12px 12px;
+    }
+
+    .window-content {
+        padding: 24px 18px;
+    }
+
+    .hero-name {
+        letter-spacing: 2px;
+    }
+
+    .icon-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px 8px;
+    }
+
+    .icon img {
+        width: clamp(56px, 17vw, 88px);
+        height: clamp(56px, 17vw, 88px);
+    }
+
+    .tech-icons {
+        gap: 24px;
+    }
+
+    .popup-window {
+        padding-bottom: 8px;
+    }
+
+    .skills-content {
+        padding: 20px 14px;
+    }
+
+    .skills-intro {
+        margin-bottom: 16px;
+    }
+
+    .skills-groups {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .skill-group {
+        padding: 12px;
+    }
+
+    .skill-group .SkillsImages {
+        grid-template-columns: repeat(auto-fit, minmax(72px, 1fr));
+    }
+
+    .skill-group .skill {
+        min-height: 104px;
+    }
+
+    .skill-image {
+        width: 66px;
+        height: 66px;
+    }
+
+    .skill-group .skill img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .standalone-work {
+        width: calc(100% - 20px);
+        max-height: calc(100svh - 20px);
+        padding: 18px 12px;
+    }
+}
+
+@media (max-height: 560px) and (min-width: 701px) {
+    .window-panel {
+        padding-block: 12px;
+    }
+
+    #workWindow .window {
+        height: calc(100svh - 24px);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+    }
+
+    .window-panel {
+        transition: none;
+    }
+}
+
+@keyframes popupBounce {
+    0% {
+        transform: scale(.7) translateY(20px);
+    }
+
+    60% {
+        transform: scale(1.03) translateY(-2px);
+    }
+
+    100% {
+        transform: scale(1) translateY(0);
+    }
+}

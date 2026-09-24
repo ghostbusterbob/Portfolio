@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Jaysen Portfolio</title>
 
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="stylework.css">
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/work.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,15 +20,11 @@
 <body>
     <div class="vhs-grain"></div>
 
-    <audio id="clickSoundIcon" src="sfx/dragon-studio-mouse-click-sfx-444806.mp3" preload="auto"></audio>
-    <audio id="clickSoundButton" src="sfx/universfield-computer-mouse-click-352734.mp3" preload="auto"></audio>
-
-    <h1 id="clock" class="bigclock">00:00</h1>
-
-
+    <audio id="clickSoundIcon" src="assets/audio/click-icon.mp3" preload="auto"></audio>
+    <audio id="clickSoundButton" src="assets/audio/click-button.mp3" preload="auto"></audio>
 
     <button class="theme-toggle" onclick="toggleTheme()">
-        <img src="img/moon.png" alt="Toggle theme">
+        <img src="assets/images/ui/theme.png" alt="Toggle theme">
     </button>
 
     <div class="app-wrapper">
@@ -51,38 +47,38 @@
 
                     <div class="tech-icons">
                         <div class="tech-icon-box">
-                            <img src="img/csharp.png" alt="C#">
+                            <img src="assets/images/skills/csharp.png" alt="C#">
                         </div>
 
                         <div class="tech-icon-box">
-                            <img src="img/unity.png" alt="Unity">
+                            <img src="assets/images/skills/unity.png" alt="Unity">
                         </div>
                     </div>
 
                     <div class="icon-grid">
 
-                        <a href="#" class="icon" onclick="openWindow('aboutWindow')">
-                            <img src="img/1176.png" alt="">
+                        <a href="#" class="icon" onclick="event.preventDefault(); openWindow('aboutWindow')">
+                            <img src="assets/images/ui/about.png" alt="">
                             <span>about</span>
                         </a>
 
 
-                        <a href="#" class="icon" onclick="openWork()">
-                            <img src="img/folder.png" alt="">
+                        <a href="#" class="icon" onclick="event.preventDefault(); openWork()">
+                            <img src="assets/images/ui/folder.png" alt="">
                             <span>work</span>
                         </a>
 
-                        <a href="#" class="icon" onclick="openWindow('linksWindow')">
-                            <img src="img/linksymbol.png" alt="">
+                        <a href="#" class="icon" onclick="event.preventDefault(); openWindow('linksWindow')">
+                            <img src="assets/images/ui/links.png" alt="">
                             <span>links</span>
                         </a>
 
-                        <a href="#" class="icon" onclick="openWindow('skillsWindow')">
-                            <img src="img/gearicon.png" alt="">
+                        <a href="#" class="icon" onclick="event.preventDefault(); openWindow('skillsWindow')">
+                            <img src="assets/images/ui/skills.png" alt="">
                             <span>skills</span>
                         </a>
-                        <a href="#" class="icon" onclick="openWindow('contactWindow')">
-                            <img src="img/email.png" alt="">
+                        <a href="#" class="icon" onclick="event.preventDefault(); openWindow('contactWindow')">
+                            <img src="assets/images/ui/email.png" alt="">
                             <span>contact</span>
                         </a>
 
@@ -102,16 +98,19 @@
                 </div>
 
                 <div class="window-content">
-                    <h1 class="hero-name">My personal projects!</h1>
-                    <p>Here are my projects.</p>
+                    <h1 class="hero-name">My personal projects!
+                        <hr class="hero-divider">
+                    </h1>
+
+
 
                     <div class="projectGrid">
                         <div class="gridCell">
-                            <img src="img/recleanrender.gif" alt="" oncontextmenu="return false;">
+                            <img src="assets/images/projects/reclean/preview.gif" alt="" oncontextmenu="return false;">
                             <div class="gridTags">
-                                <img src="img/unity.png" alt="">
-                                <img src="img/csharp.png" alt="">
-                                <img src="img/blendericon.png" alt="">
+                                <img src="assets/images/skills/unity.png" alt="">
+                                <img src="assets/images/skills/csharp.png" alt="">
+                                <img src="assets/images/skills/blender.png" alt="">
                             </div>
 
                             <div class="gridCaption">
@@ -121,32 +120,77 @@
                                     corrupti nam aspernatur, sequi alias illum voluptatibus, numquam quaerat culpa
                                     voluptatum voluptas, quis nihil maiores! Molestias illum corporis vero sequi sunt!
                                 </p>
-                                <a href="ReClean.html"><button>Learn More!</button></a>
+                                <a href="pages/reclean.html"><button>Learn More!</button></a>
                             </div>
                         </div>
                         <div class="gridCell">
-                            <img src="img/LewisBhutan.png" alt="" oncontextmenu="return false;">
+                            <img src="assets/images/projects/road-to-bhutan/cover.png" alt=""
+                                oncontextmenu="return false;">
+                            <div class="gridTags">
+                                <img src="assets/images/skills/unity.png" alt="">
+                                <img src="assets/images/skills/csharp.png" alt="">
+                                <img src="assets/images/skills/blender.png" alt="">
+                            </div>
                             <div class="gridCaption">
-                                <div class="gridTags">
-                                    <img src="img/unity.png" alt="">
-                                    <img src="img/csharp.png" alt="">
-                                    <img src="img/blendericon.png" alt="">
-
-                                </div>
                                 <p class="capsuleTitle">Road To Bhutan</p>
                                 <p class="description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id,
                                     velit dolor prsaesentium a delectus ratione obcaecati. Molestiae quam quae, mollitia
                                     quod pariatur optio id natus facere quos temporibus molestias atque!</p>
-                                <a href="RoadToBhutan.html"><button>Learn More!</button></a>
+                                <a href="pages/road-to-bhutan.html"><button>Learn More!</button></a>
 
                                 <button>Try it out!</button>
                             </div>
                         </div>
                         <div class="gridCell">
-                            <img src="img/recleanrender.gif" alt="">
+                            <img src="assets/images/projects/reclean/preview.gif" alt="">
                             <div class="gridTags">
-                                <img src="img/unity.png" alt="">
-                                <img src="img/csharp.png" alt="">
+                                <img src="assets/images/skills/unity.png" alt="">
+                                <img src="assets/images/skills/csharp.png" alt="">
+                            </div>
+
+                            <div class="gridCaption">
+                                <p class="capsuleTitle">PlaceHolder</p>
+                                <p class="description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id,
+                                    velit dolor praesentium a delectus ratione obcaecati. Molestiae quam quae, mollitia
+                                    quod pariatur optio id natus facere quos temporibus molestias atque!</p>
+                                <button>Learn More!</button>
+                            </div>
+                        </div>
+                        <div class="gridCell">
+                            <img src="assets/images/projects/reclean/preview.gif" alt="">
+                            <div class="gridTags">
+                                <img src="assets/images/skills/unity.png" alt="">
+                                <img src="assets/images/skills/csharp.png" alt="">
+                            </div>
+
+                            <div class="gridCaption">
+                                <p class="capsuleTitle">PlaceHolder</p>
+                                <p class="description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id,
+                                    velit dolor praesentium a delectus ratione obcaecati. Molestiae quam quae, mollitia
+                                    quod pariatur optio id natus facere quos temporibus molestias atque!</p>
+                                <button>Learn More!</button>
+                            </div>
+                        </div>
+                        <div class="gridCell">
+                            <img src="assets/images/projects/reclean/preview.gif" alt="">
+                            <div class="gridTags">
+                                <img src="assets/images/skills/unity.png" alt="">
+                                <img src="assets/images/skills/csharp.png" alt="">
+                            </div>
+
+                            <div class="gridCaption">
+                                <p class="capsuleTitle">PlaceHolder</p>
+                                <p class="description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id,
+                                    velit dolor praesentium a delectus ratione obcaecati. Molestiae quam quae, mollitia
+                                    quod pariatur optio id natus facere quos temporibus molestias atque!</p>
+                                <button>Learn More!</button>
+                            </div>
+                        </div>
+                        <div class="gridCell">
+                            <img src="assets/images/projects/reclean/preview.gif" alt="">
+                            <div class="gridTags">
+                                <img src="assets/images/skills/unity.png" alt="">
+                                <img src="assets/images/skills/csharp.png" alt="">
                             </div>
 
                             <div class="gridCaption">
@@ -180,21 +224,17 @@
     <!-- LINKS WINDOW -->
     <div id="linksWindow" class="popup-window">
         <div class="popup-bar">
-            <span>Links</span>
-            <button onclick="closeWindow('linksWindow')">✕</button>
+            <span>Find me online</span>
+            <button type="button" aria-label="Close links window" onclick="closeWindow('linksWindow')">✕</button>
         </div>
 
         <div class="popup-content links-grid">
-
-            <a href="https://github.com/ghostbusterbob" target="_blank" class="link-icon">
-                <img src="img/github.png" alt="">
-                <span>GitHub</span>
-            </a>
-
-
-            <a href="mailto:jaysenvanderwal@gmail.com" class="link-icon">
-                <img src="img/Gmail_icon_(2020).svg.png" alt="">
-                <span>Email</span>
+            <h1 class="links-heading">Links</h1>
+            <p class="links-intro">Take a look at my work or get in touch.</p>
+            <a href="https://github.com/ghostbusterbob" target="_blank" rel="noopener noreferrer" class="link-icon">
+                <span class="link-icon-image"><img src="assets/images/ui/github.png" alt=""></span>
+                <span class="link-details"><strong>GitHub</strong><small>See my code and projects</small></span>
+                <span class="link-arrow" aria-hidden="true">↗</span>
             </a>
 
         </div>
@@ -202,55 +242,55 @@
     <!-- Skills WINDOW -->
     <div id="skillsWindow" class="popup-window">
         <div class="popup-bar">
-            <span>Skills</span>
-            <button onclick="closeWindow('skillsWindow')">✕</button>
+            <span>Skills &amp; tools</span>
+            <button type="button" aria-label="Close skills window" onclick="closeWindow('skillsWindow')">✕</button>
         </div>
 
-        <div class="SkillsImages">
-
-            <div class="skill">
-                <img src="img/csharp.png" alt="C#">
-                <span>C#</span>
-            </div>
-
-            <div class="skill">
-                <img src="img/unity.png" alt="Unity">
-                <span>Unity</span>
-            </div>
-
-            <div class="skill">
-                <img src="img/GitIconWebsite.png" alt="Blender">
-                <span>Git</span>
-            </div>
-
-
-            <div class="skill">
-                <img src="img/blendericon.png" alt="Blender">
-                <span>Blender</span>
-            </div>
-
-            <div class="skill">
-                <img src="img/SubstancePainterIcon.png" alt="Blender">
-                <span>Substance Painter</span>
+        <div class="skills-content">
+            <h1 class="skills-heading">My Skills</h1>
+            <div class="skills-groups">
+                <section class="skill-group" aria-labelledby="skills-dev-heading">
+                    <h2 id="skills-dev-heading">Development</h2>
+                    <div class="SkillsImages">
+                        <div class="skill"><span class="skill-image"><img src="assets/images/skills/csharp.png"
+                                    alt=""></span><span>C#</span></div>
+                        <div class="skill"><span class="skill-image"><img src="assets/images/skills/unity.png"
+                                    alt=""></span><span>Unity</span></div>
+                        <div class="skill"><span class="skill-image"><img src="assets/images/skills/git.png"
+                                    alt=""></span><span>Git</span></div>
+                    </div>
+                </section>
+                <section class="skill-group" aria-labelledby="skills-art-heading">
+                    <h2 id="skills-art-heading">3D &amp; art</h2>
+                    <div class="SkillsImages">
+                        <div class="skill"><span class="skill-image"><img src="assets/images/skills/blender.png"
+                                    alt=""></span><span>Blender</span></div>
+                        <div class="skill"><span class="skill-image"><img
+                                    src="assets/images/skills/substance-painter.png" alt=""></span><span>Substance
+                                Painter</span></div>
+                    </div>
+                </section>
             </div>
         </div>
-
     </div>
     <!-- Contact WINDOW -->
     <div id="contactWindow" class="popup-window">
         <div class="popup-bar">
-            <span>E-MAIL</span>
-            <button onclick="closeWindow('contactWindow')">✕</button>
+            <span>Contact</span>
+            <button type="button" aria-label="Close contact window" onclick="closeWindow('contactWindow')">✕</button>
         </div>
-        <h1>E-mail me!</h1>
         <div class="emailgrid">
-            <p>The best way to contact me is by sending a e-mail</p>
-            <p>e-mail me at: <a onclick="copyText()">jaysenvanderwal@gmail.com</a> </p>
-            <a class="emailButton" href="mailto:jaysenvanderwal@gmail.com">
-                E-MAIL me!
-            </a>
+            <div class="contact-icon"><img src="assets/images/ui/email.png" alt=""></div>
+            <h1>Let’s talk</h1>
+            <p class="contact-copy">Have a project or a question? Send me an email and I’ll get back to you.</p>
+            <div class="email-card">
+                <span class="email-label">MY EMAIL</span>
+                <a class="email-address" href="mailto:jaysenvanderwal@gmail.com">jaysenvanderwal@gmail.com</a>
+                <button class="copy-email" type="button" onclick="copyText()">Copy address</button>
+            </div>
+            <a class="emailButton" href="mailto:jaysenvanderwal@gmail.com">✉ <span>Send me an email</span></a>
+            <p class="copy-status" aria-live="polite"></p>
         </div>
-    </div>
     </div>
 
     <script src="js/popups.js"></script>
@@ -273,21 +313,6 @@
             });
         });
     </script>
-
-    <script>
-        function copyText() {
-            const text = document.getElementById("email").innerText;
-
-            navigator.clipboard.writeText(text)
-                .then(() => {
-                    alert("Copied!");
-                })
-                .catch(err => {
-                    console.error("Failed to copy: ", err);
-                });
-        }
-    </script>
-
 
 </body>
 

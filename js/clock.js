@@ -5,9 +5,12 @@ function updateClock() {
     const minutes = now.getMinutes();
     const seconds = now.getSeconds();
 
-    document.getElementById("clock").textContent =
-        `${hours}:${minutes}:${seconds}`;
+    const clock = document.getElementById("clock");
+    if (!clock) return;
+    clock.textContent = [hours, minutes, seconds]
+        .map((value) => String(value).padStart(2, "0"))
+        .join(":");
 }
 
-setInterval(updateClock, 1000);
+window.setInterval(updateClock, 1000);
 updateClock();

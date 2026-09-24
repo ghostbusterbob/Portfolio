@@ -37,7 +37,7 @@ const loader = new GLTFLoader();
 let model;
 
 loader.load(
-    "3dmodels/Hallway.glb",
+    "assets/models/hallway.glb",
     (gltf) => {
         model = gltf.scene;
 

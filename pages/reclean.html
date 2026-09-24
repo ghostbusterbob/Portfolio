@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0e1825">
+    <title>RE:CLEAN | Jaysen van der Wal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Libre+Baskerville:wght@400..700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../css/reclean.css">
+</head>
+
+<body>
+    <button class="theme-toggle" type="button" aria-label="Toggle light and dark theme"
+        onclick="document.body.classList.toggle('light')">
+        <img src="../assets/images/ui/theme.png" alt="">
+    </button>
+    <main class="window project-window">
+        <header class="window-bar">
+            <a class="back-link" href="../index.html" aria-label="Back to portfolio">← <span>Portfolio</span></a>
+            <span class="window-title">Project details</span>
+        </header>
+        <article class="window-content">
+            <header class="project-hero">
+                <h1 class="hero-name">RE:CLEAN</h1>
+                <p class="project-lead">A Unity game project exploring multiplayer gameplay and player-hosted sessions.
+                </p>
+                <ul class="project-tags" aria-label="Tools used">
+                    <li>Unity</li>
+                    <li>C#</li>
+                    <li>Netcode for GameObjects</li>
+                </ul>
+            </header>
+
+            <section class="project-section">
+
+                <div class="section-heading"><span>01</span>
+                    <h2>Gameplay &amp; art</h2>
+                </div>
+                <p>A look at the game in motion, including an enemy model created for the project.</p>
+                <figure class="project-figure project-figure--feature">
+                    <img src="../assets/images/projects/reclean/gameplay.gif" alt="Animated RE:CLEAN gameplay preview"
+                        loading="lazy">
+                    <figcaption>Gameplay preview</figcaption>
+                </figure>
+
+
+
+
+            </section>
+
+            <section class="project-section">
+                <div class="section-heading"><span>02</span>
+                    <h2>Multiplayer</h2>
+                </div>
+                <p>RE:CLEAN includes multiplayer functionality built with Netcode for GameObjects, alongside a
+                    peer-to-peer, room-based hosting setup.</p>
+                <figure class="project-figure">
+                    <img src="../assets/images/projects/reclean/multiplayer.png"
+                        alt="RE:CLEAN multiplayer gameplay screen" loading="lazy">
+                    <figcaption>Multiplayer gameplay</figcaption>
+                </figure>
+
+                <h3 class="project-subheading">Room-based hosting</h3>
+                <figure class="project-figure">
+                    <img src="../assets/images/projects/reclean/p2p.png" alt="RE:CLEAN peer-to-peer room hosting screen"
+                        loading="lazy">
+                    <figcaption>Peer-to-peer room hosting</figcaption>
+                </figure>
+
+            </section>
+
+            <figure class="project-figure project-figure--portrait">
+                <img src="../assets/images/projects/reclean/enemy.png" alt="Enemy model created for RE:CLEAN"
+                    loading="lazy">
+                <figcaption>I make almost all of the 3D models for my games myself.</figcaption>
+            </figure>
+
+            <footer class="project-footer"><a href="../index.html">← Back to all projects</a></footer>
+        </article>
+    </main>
+</body>
+
+</html>
