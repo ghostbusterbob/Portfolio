@@ -1,4 +1,4 @@
-function openWindow(id) {
+function openWindow(id, position = null) {
     const win = document.getElementById(id);
     if (!win) return;
 
@@ -12,8 +12,25 @@ function openWindow(id) {
     const centerTop = (window.innerHeight - bounds.height) / 2;
     const spreadX = Math.min(100, maxLeft / 2);
     const spreadY = Math.min(80, maxTop / 2);
-    win.style.left = `${Math.min(maxLeft, Math.max(margin, centerLeft + (Math.random() - .5) * spreadX * 2))}px`;
-    win.style.top = `${Math.min(maxTop, Math.max(margin, centerTop + (Math.random() - .5) * spreadY * 2))}px`;
+    const left = position?.left ?? centerLeft + (Math.random() - .5) * spreadX * 2;
+    const top = position?.top ?? centerTop + (Math.random() - .5) * spreadY * 2;
+    const targetLeft = Math.min(maxLeft, Math.max(margin, left));
+    const targetTop = Math.min(maxTop, Math.max(margin, top));
+    win.style.left = `${targetLeft}px`;
+    win.style.top = `${targetTop}px`;
+    if (position?.flyFromMain) {
+        const main = document.querySelector("#mainWindow .window")?.getBoundingClientRect();
+        const originX = main ? main.left + main.width / 2 : window.innerWidth / 2;
+        const originY = main ? main.top + main.height / 2 : window.innerHeight / 2;
+        const flyX = originX - (targetLeft + bounds.width / 2);
+        const flyY = originY - (targetTop + bounds.height / 2);
+        const arcHeight = Math.min(150, Math.max(64, window.innerHeight * .12));
+        win.style.setProperty("--fly-x", `${flyX}px`);
+        win.style.setProperty("--fly-y", `${flyY}px`);
+        win.style.setProperty("--arc-x", `${flyX * .5}px`);
+        win.style.setProperty("--arc-y", `${flyY * .5 - arcHeight}px`);
+        win.classList.add("about-fly-in");
+    }
     requestAnimationFrame(() => win.classList.add("show"));
 }
 
@@ -21,7 +38,14 @@ function closeWindow(id) {
     const win = document.getElementById(id);
     if (!win) return;
     win.classList.remove("show");
-    window.setTimeout(() => { win.style.display = "none"; }, 220);
+    window.setTimeout(() => {
+        win.style.display = "none";
+        win.classList.remove("about-fly-in");
+        win.style.removeProperty("--fly-x");
+        win.style.removeProperty("--fly-y");
+        win.style.removeProperty("--arc-x");
+        win.style.removeProperty("--arc-y");
+    }, 220);
 }
 
 function toggleTheme() {
@@ -98,3 +122,11 @@ window.addEventListener("resize", () => {
         win.style.top = `${Math.min(maxTop, Math.max(margin, win.offsetTop))}px`;
     });
 });
+
+/*if (document.getElementById("aboutWindow")) {
+    openWindow("aboutWindow", {
+        left: window.innerWidth * 0.07,
+        top: window.innerHeight * .12,
+        flyFromMain: true
+    });
+}*/

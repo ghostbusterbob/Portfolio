@@ -226,6 +226,16 @@ a:focus-visible {
     object-fit: contain;
 }
 
+#aboutMe {
+    font-size: 140%;
+    word-spacing: 5%;
+
+}
+
+#aboutMe-header {
+    font-size: 200%;
+}
+
 .icon span {
     color: #eaeaea;
     font-size: 12px;
@@ -277,6 +287,19 @@ a:focus-visible {
     animation: popupBounce .1s ease-out;
 }
 
+.popup-window.about-fly-in.show {
+    animation: aboutFlyBounce .72s cubic-bezier(.2, .85, .25, 1) both;
+    transform-origin: center;
+}
+
+@keyframes aboutFlyBounce {
+    0% { opacity: 0; transform: translate(var(--fly-x), var(--fly-y)) scale(.35); }
+    48% { opacity: 1; transform: translate(var(--arc-x), var(--arc-y)) scale(.78); }
+    78% { transform: translate(0, 0) scale(1.045); }
+    89% { transform: translate(0, 0) scale(.98); }
+    100% { opacity: 1; transform: translate(0, 0) scale(1); }
+}
+
 .popup-bar {
     position: sticky;
     top: 0;
@@ -293,6 +316,36 @@ a:focus-visible {
     color: var(--text);
     font-size: 14px;
     line-height: 1.5;
+}
+
+#aboutWindow {
+    width: min(650px, calc(100vw - 28px));
+}
+
+.about-content {
+    display: grid;
+    gap: 13px;
+    padding: clamp(22px, 4vw, 34px);
+}
+
+#aboutWindow #aboutMe-header {
+    margin: 0;
+    color: white;
+    font: 500 clamp(27px, 5vw, 36px)/1.2 "Libre Baskerville", Georgia, serif;
+}
+
+.about-copy {
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.7;
+}
+
+body.light #aboutWindow #aboutMe-header {
+    color: #16191d;
+}
+
+body.light .about-copy {
+    color: #505761;
 }
 
 /* Shared popup controls and cards */
